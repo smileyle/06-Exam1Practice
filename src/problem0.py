@@ -8,8 +8,8 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Lauren Smiley.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import testing_helper
@@ -24,7 +24,7 @@ def main():
 
 
 ########################################################################
-# TODO: 2.  READ the green doc-string for the:
+# Done: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -144,6 +144,12 @@ def run_test_problem0a():
 
 
 def problem0a(n):
+
+    if sum_of_digits(n) % 2 != 0:
+        return True
+    return False
+
+
     """
     What comes in:  An integer.
     What goes out:
@@ -159,7 +165,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -214,6 +220,15 @@ def run_test_problem0b():
 
 
 def problem0b(n):
+    if n >= 2:
+        count = 0
+        for k in range(2, n+1):
+            truth = False
+            if is_prime(k) != truth:
+                count = count + 1
+    return count
+
+
     """
     What comes in:  An integer n >= 2.
     What goes out:
@@ -230,7 +245,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -275,6 +290,12 @@ def run_test_problem0c():
 
 
 def problem0c(circle, n, window):
+    circle.attach_to(window)
+    for k in range(n):
+        circus = rg.Circle(rg.Point(circle.center.x + (k * (2 * circle.radius)), circle.center.y), circle.radius)
+        circus.attach_to(window)
+        window.render(0.5)
+
     """
     See   problem0c_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -298,7 +319,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
