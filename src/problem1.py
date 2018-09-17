@@ -227,10 +227,9 @@ def run_test_problem1b():
 
 def problem1b(m, f):
     count = 0
-    if m >= 2:
-        for k in range(m, (m*f)+1):
-            if is_prime(k) is True:
-                count = count+1
+    for k in range(((m * f) - m) + 1):
+        if is_prime(k+m) is True:
+            count = count + 1
     return count
     """
     What comes in:  Positive integers m and f such that m >= 2.
